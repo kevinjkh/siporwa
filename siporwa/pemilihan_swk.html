@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Pemilihan SWK</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Sistem pemantauan point reward</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="registrasi_pengunjung.html">Registrasi Pengunjung</a></li>
+								<li><a href="#login-admin" id="login-admin-link" data-admin-auth-open="login">Login Admin</a></li>
+								<li><a href="#pengundian" data-admin-auth-open="login" data-admin-auth-redirect="dashboard_pengundian.html">Pengundian</a></li>
+                                                                <li><a href="#cek-statistik" data-admin-auth-open="login" data-admin-auth-redirect="pemilihan_swk.html?mode=statistik">Cek Statistik</a></li>
+								<li><a href="login_pengunjung.html">Login Pengunjung</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<article class="post">
+							<header>
+								<div class="title">
+									<h2>Pemilihan SWK</h2>
+									<p>Pilih salah satu SWK</p>
+								</div>
+							</header>
+
+							<ul class="actions">
+								<li><a href="#" class="button" data-swk="SWK Ketabang">SWK Ketabang</a></li>
+								<li><a href="#" class="button" data-swk="SWK Taman Prestasi">SWK Taman Prestasi</a></li>
+								<li><a href="#" class="button" data-swk="SWK Mulyorejo">SWK Mulyorejo</a></li>
+							</ul>
+
+							<h3 id="swk-selected-title" hidden></h3>
+							<div id="visitor-sort-wrapper" class="admin-auth__field" hidden>
+								<label for="visitor-sort">Sortir</label>
+								<select id="visitor-sort" name="sortir">
+									<option value="semua">Semua</option>
+									<option value="nama">Nama</option>
+									<option value="swk">SWK</option>
+									<option value="point">Point</option>
+								</select>
+							</div>
+							<div id="visitor-statistics-actions" hidden>
+								<ul class="actions">
+                                                                        <li><a href="https://flourish.studio/" id="visitor-check-statistics" class="button large">Cek Statistik</a></li>
+								</ul>
+							</div>
+							<div id="visitor-table-container" hidden></div>
+							<div id="visitor-pagination" class="pagination-bar" hidden>
+								<div id="visitor-range" class="pagination-bar__info"></div>
+								<div id="visitor-pages" class="pagination-bar__pages"></div>
+							</div>
+						</article>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img src="images/gambar.png" alt="" /></a>
+								<header>
+									<h2>Sistem pemantauan point reward</h2>
+									<p>semakin banyak pointmu semakin banyak rewardmu</p>
+								</header>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=dinkominfo@surabaya.go.id" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href="https://api.whatsapp.com/send/?phone=6281226661900&text&type=phone_number&app_absent=0" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Design by kelompok kkn 35 umsura:. </p>
+							</section>
+
+					</section>
+
+			</div>
+
+			<div id="admin-auth-modal" class="admin-modal" aria-hidden="true">
+				<div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="admin-auth-title">
+					<button type="button" class="admin-modal__close" data-admin-auth-close aria-label="Tutup">&times;</button>
+
+					<div id="admin-auth-view-login">
+						<h2 id="admin-auth-title">Login Admin</h2>
+						<form id="admin-login-form" autocomplete="off">
+							<div class="admin-auth__field">
+								<label for="admin-username">Username</label>
+								<input id="admin-username" name="username" type="text" autocomplete="username" required />
+							</div>
+							<div class="admin-auth__field">
+								<label for="admin-password">Password</label>
+								<input id="admin-password" name="password" type="password" autocomplete="current-password" required />
+							</div>
+							<div class="admin-auth__actions">
+								<input type="submit" value="Login" />
+								<button type="button" class="button" data-admin-auth-forgot>Lupa Password</button>
+							</div>
+							<p id="admin-login-message" class="admin-auth__success" hidden></p>
+							<p id="admin-login-error" class="admin-auth__error" hidden></p>
+						</form>
+					</div>
+
+					<div id="admin-auth-view-forgot" hidden>
+						<h2>Ubah Password</h2>
+						<form id="admin-forgot-form" autocomplete="off">
+							<div class="admin-auth__field">
+								<label for="admin-new-password">Password Baru</label>
+								<input id="admin-new-password" name="newPassword" type="password" autocomplete="new-password" required />
+							</div>
+							<div class="admin-auth__field">
+								<label for="admin-confirm-password">Konfirmasi Password</label>
+								<input id="admin-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required />
+							</div>
+							<div class="admin-auth__actions">
+								<input type="submit" value="Konfirmasi" />
+								<button type="button" class="button" data-admin-auth-back>Kembali</button>
+							</div>
+							<p id="admin-forgot-error" class="admin-auth__error" hidden></p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+                        <div id="visitor-reset-modal" class="admin-modal" aria-hidden="true">
+                                <div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="visitor-reset-title">
+                                        <button type="button" class="admin-modal__close" data-visitor-reset-close aria-label="Tutup">&times;</button>
+                                        <h2 id="visitor-reset-title">Reset Data Pengunjung</h2>
+                                        <p class="visitor-reset-modal__message">Apakah anda yakin ingin mereset data pengunjung karena jika iya data akan dihapus dan data pengunjung sebelumnya tidak dapat dilihat lagi?</p>
+                                        <div class="admin-auth__actions">
+                                                <button type="button" class="button primary" data-visitor-reset-confirm>Iya</button>
+                                                <button type="button" class="button" data-visitor-reset-cancel>Tidak</button>
+                                        </div>
+                                </div>
+                        </div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+			<script src="assets/js/alert.js"></script>
+
+	</body>
+</html>

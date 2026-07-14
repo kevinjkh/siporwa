@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Registrasi Pengunjung</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Sistem pemantauan point reward</a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="registrasi_pengunjung.html">Registrasi Pengunjung</a></li>
+								<li><a href="#login-admin" id="login-admin-link" data-admin-auth-open="login">Login Admin</a></li>
+								<li><a href="#pengundian" data-admin-auth-open="login" data-admin-auth-redirect="dashboard_pengundian.html">Pengundian</a></li>
+                                                                <li><a href="#cek-statistik" data-admin-auth-open="login" data-admin-auth-redirect="pemilihan_swk.html?mode=statistik">Cek Statistik</a></li>
+								<li><a href="login_pengunjung.html">Login Pengunjung</a></li>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<article class="post">
+							<header>
+								<div class="title">
+									<h2>Registrasi Pengunjung</h2>
+									<p>Silakan isi data untuk membuat akun pengunjung</p>
+								</div>
+							</header>
+
+							<!-- registrasi pengunjung -->
+							<form id="visitor-register-form" autocomplete="off">
+								<div class="admin-auth__field">
+									<label for="visitor-name">Nama</label>
+									<input id="visitor-name" name="name" type="text" required />
+								</div>
+
+								<div class="admin-auth__field">
+									<label for="visitor-username">Username</label>
+									<input id="visitor-username" name="username" type="text" autocomplete="username" required />
+								</div>
+
+								<div class="admin-auth__field">
+									<label for="visitor-password">Password</label>
+									<input id="visitor-password" name="password" type="password" autocomplete="new-password" required />
+								</div>
+
+								<div class="admin-auth__field">
+									<label for="visitor-email">Email (Opsional)</label>
+									<input id="visitor-email" name="email" type="email" autocomplete="email" />
+								</div>
+
+								<div class="admin-auth__field">
+									<label for="visitor-phone">Nomer Telepon</label>
+									<input id="visitor-phone" name="phone" type="tel" autocomplete="tel" required />
+								</div>
+
+								<div class="admin-auth__field">
+									<label for="visitor-swk">Pilih SWK</label>
+									<select id="visitor-swk" name="swk" required>
+										<option value="">-- Pilih SWK --</option>
+										<option value="SWK Ketabang">SWK Ketabang</option>
+										<option value="SWK Taman Prestasi">SWK Taman Prestasi</option>
+										<option value="SWK Mulyorejo">SWK Mulyorejo</option>
+									</select>
+								</div>
+
+								<ul class="actions">
+									<li><input type="submit" value="Daftar" /></li>
+									<li><a class="button" href="login_pengunjung.html">Ke Login</a></li>
+								</ul>
+
+								<p id="visitor-register-success" class="admin-auth__success" hidden></p>
+								<p id="visitor-register-error" class="admin-auth__error" hidden></p>
+							</form>
+						</article>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="#" class="logo"><img src="images/gambar.png" alt="" /></a>
+								<header>
+									<h2>Sistem pemantauan point reward</h2>
+									<p>semakin banyak pointmu semakin banyak rewardmu</p>
+								</header>
+							</section>
+
+						<!-- Footer -->
+							<section id="footer">
+								<ul class="icons">
+									<li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=dinkominfo@surabaya.go.id" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+									<li><a href="https://api.whatsapp.com/send/?phone=6281226661900&text&type=phone_number&app_absent=0" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+								</ul>
+								<p class="copyright">&copy; Design by kelompok kkn 35 umsura:. </p>
+							</section>
+
+					</section>
+
+			</div>
+
+			<div id="admin-auth-modal" class="admin-modal" aria-hidden="true">
+				<div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="admin-auth-title">
+					<button type="button" class="admin-modal__close" data-admin-auth-close aria-label="Tutup">&times;</button>
+
+					<div id="admin-auth-view-login">
+						<h2 id="admin-auth-title">Login Admin</h2>
+						<form id="admin-login-form" autocomplete="off">
+							<div class="admin-auth__field">
+								<label for="admin-username">Username</label>
+								<input id="admin-username" name="username" type="text" autocomplete="username" required />
+							</div>
+							<div class="admin-auth__field">
+								<label for="admin-password">Password</label>
+								<input id="admin-password" name="password" type="password" autocomplete="current-password" required />
+							</div>
+							<div class="admin-auth__actions">
+								<input type="submit" value="Login" />
+								<button type="button" class="button" data-admin-auth-forgot>Lupa Password</button>
+							</div>
+							<p id="admin-login-message" class="admin-auth__success" hidden></p>
+							<p id="admin-login-error" class="admin-auth__error" hidden></p>
+						</form>
+					</div>
+
+					<div id="admin-auth-view-forgot" hidden>
+						<h2>Ubah Password</h2>
+						<form id="admin-forgot-form" autocomplete="off">
+							<div class="admin-auth__field">
+								<label for="admin-new-password">Password Baru</label>
+								<input id="admin-new-password" name="newPassword" type="password" autocomplete="new-password" required />
+							</div>
+							<div class="admin-auth__field">
+								<label for="admin-confirm-password">Konfirmasi Password</label>
+								<input id="admin-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required />
+							</div>
+							<div class="admin-auth__actions">
+								<input type="submit" value="Konfirmasi" />
+								<button type="button" class="button" data-admin-auth-back>Kembali</button>
+							</div>
+							<p id="admin-forgot-error" class="admin-auth__error" hidden></p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/alert.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<!--
+        Future Imperfect by HTML5 UP
+        html5up.net | @ajlkn
+        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+        <head>
+                <title>Dashboard Pengunjung</title>
+                <meta charset="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+                <link rel="stylesheet" href="assets/css/main.css" />
+        </head>
+        <body class="is-preload">
+
+                <div id="wrapper">
+
+                        <header id="header">
+                                <h1><a href="index.html">Sistem pemantauan point reward</a></h1>
+                                <nav class="links">
+                                        <ul>
+                                                <li><a href="index.html">Home</a></li>
+                                                <li><a href="registrasi_pengunjung.html">Registrasi Pengunjung</a></li>
+                                                <li><a href="#login-admin" data-admin-auth-open="login">Login Admin</a></li>
+                                                <li><a href="#pengundian" data-admin-auth-open="login" data-admin-auth-redirect="dashboard_pengundian.html">Pengundian</a></li>
+                                                <li><a href="#cek-statistik" data-admin-auth-open="login" data-admin-auth-redirect="pemilihan_swk.html?mode=statistik">Cek Statistik</a></li>
+                                                <li><a href="login_pengunjung.html">Login Pengunjung</a></li>
+                                        </ul>
+                                </nav>
+                                <nav class="main">
+                                        <ul>
+                                                <li class="search">
+                                                        <a class="fa-search" href="#search">Search</a>
+                                                        <form id="search" method="get" action="#">
+                                                                <input type="text" name="query" placeholder="Search" />
+                                                        </form>
+                                                </li>
+                                        </ul>
+                                </nav>
+                        </header>
+
+                        <div id="main">
+
+                                <article class="post visitor-dashboard">
+                                        <header class="visitor-dashboard__header">
+                                                <div class="title">
+                                                        <h2>Dashboard Pengunjung</h2>
+                                                        <p>Upload struk lalu isi data pembelian untuk menambah point reward berdasarkan total belanja</p>
+                                                </div>
+                                                <div class="visitor-dashboard__profile">
+                                                        <span class="visitor-dashboard__label">Nama Pengunjung</span>
+                                                        <strong id="visitor-dashboard-name">-</strong>
+                                                        <span class="visitor-dashboard__label">SWK</span>
+                                                        <strong id="visitor-dashboard-swk">-</strong>
+                                                        <span class="visitor-dashboard__label">Point Saat Ini</span>
+                                                        <strong id="visitor-dashboard-points">0</strong>
+                                                        <button type="button" class="button small" id="visitor-dashboard-logout">Logout</button>
+                                                </div>
+                                        </header>
+
+                                        <section class="visitor-dashboard__notice">
+                                                <p>Point dihitung dari total belanja harga x qty: setiap kelipatan Rp 10.000 mendapat 100 point, maksimal 1000 point, dan point akan otomatis kembali menjadi 0 setelah 30 hari.</p>
+                                        </section>
+
+                                        <section class="visitor-stage">
+                                                <header class="visitor-stage__header">
+                                                        <div>
+                                                                <h3>1. Upload Gambar</h3>
+                                                                <p>Yang bisa diupload hanya gambar makanan, minuman, dan struk pembelian. Sistem akan memvalidasi isi gambar secara otomatis.</p>
+                                                        </div>
+                                                </header>
+
+                                                <div class="visitor-upload-box">
+                                                        <div class="visitor-upload-box__top">
+                                                                <label for="visitor-receipt-file" class="button primary small visitor-upload-box__trigger">Pilih Gambar</label>
+                                                                <span class="visitor-upload-box__limit">Gambar Makanan, Minuman, atau Struk Pembelian</span>
+                                                        </div>
+                                                        <input id="visitor-receipt-file" class="visitor-upload-box__input" type="file" accept="image/*" multiple />
+                                                        <p class="visitor-upload-box__hint">Pilih file gambar makanan, minuman, atau struk pembelian seperti JPG, JPEG, PNG, atau WEBP. Dalam 1 kali upload hanya bisa mengupload 1 gambar, dan setiap gambar akan dicek otomatis agar gambar sembarangan ditolak.</p>
+                                                        <p id="visitor-upload-info" class="visitor-upload-box__info">Silakan pilih gambar makanan, minuman, atau struk pembelian terlebih dahulu.</p>
+                                                        <p id="visitor-receipt-status" class="visitor-upload-box__status">Belum ada gambar yang dikonfirmasi.</p>
+
+                                                        <div id="visitor-receipt-preview" class="visitor-receipt-preview" hidden>
+                                                                <div id="visitor-receipt-preview-list" class="visitor-receipt-preview__list"></div>
+                                                        </div>
+                                                </div>
+
+                                                <ul class="actions">
+                                                        <li><button type="button" class="button primary" id="visitor-receipt-confirm">Konfirmasi Upload Gambar</button></li>
+                                                </ul>
+                                        </section>
+
+                                        <section class="visitor-stage" id="visitor-data-stage" hidden>
+                                                <header class="visitor-stage__header">
+                                                        <div>
+                                                                <h3>2. Input Data Pembelian</h3>
+                                                                <p>Isi nama barang, tanggal pembelian, qty barang, dan harga barang. Point dihitung dari total harga barang dikali qty.</p>
+                                                        </div>
+                                                </header>
+
+                                                <form id="visitor-purchase-form" autocomplete="off">
+                                                        <div class="row gtr-uniform">
+                                                                <div class="col-6 col-12-small">
+                                                                        <label for="visitor-item-name">Nama Barang</label>
+                                                                        <input id="visitor-item-name" name="itemName" type="text" required />
+                                                                </div>
+                                                                <div class="col-6 col-12-small">
+                                                                        <label for="visitor-purchase-date">Tanggal Pembelian</label>
+                                                                        <input id="visitor-purchase-date" name="purchaseDate" type="date" required />
+                                                                </div>
+                                                                <div class="col-6 col-12-small">
+                                                                        <label for="visitor-item-qty">Qty Barang</label>
+                                                                        <input id="visitor-item-qty" name="qty" type="text" inputmode="numeric" required />
+                                                                </div>
+                                                                <div class="col-6 col-12-small">
+                                                                        <label for="visitor-item-price">Harga Barang</label>
+                                                                        <input id="visitor-item-price" name="price" type="text" placeholder="RP 10.000" required />
+                                                                </div>
+                                                        </div>
+
+                                                        <ul class="actions">
+                                                                <li><input type="submit" value="Konfirmasi Data" /></li>
+                                                        </ul>
+                                                </form>
+                                        </section>
+                                </article>
+
+                        </div>
+
+                        <section id="sidebar">
+
+                                <section id="intro">
+                                        <a href="#" class="logo"><img src="images/gambar.png" alt="" /></a>
+                                        <header>
+                                                <h2>Sistem pemantauan point reward</h2>
+                                                <p>semakin banyak pointmu semakin banyak rewardmu</p>
+                                        </header>
+                                </section>
+
+                                <section id="footer">
+                                        <ul class="icons">
+                                                <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=dinkominfo@surabaya.go.id" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                                                <li><a href="https://api.whatsapp.com/send/?phone=6281226661900&text&type=phone_number&app_absent=0" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+                                        </ul>
+                                        <p class="copyright">&copy; Design by kelompok kkn 35 umsura:. </p>
+                                </section>
+
+                        </section>
+
+                </div>
+
+                <div id="admin-auth-modal" class="admin-modal" aria-hidden="true">
+                        <div class="admin-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="admin-auth-title">
+                                <button type="button" class="admin-modal__close" data-admin-auth-close aria-label="Tutup">&times;</button>
+
+                                <div id="admin-auth-view-login">
+                                        <h2 id="admin-auth-title">Login Admin</h2>
+                                        <form id="admin-login-form" autocomplete="off">
+                                                <div class="admin-auth__field">
+                                                        <label for="admin-username">Username</label>
+                                                        <input id="admin-username" name="username" type="text" autocomplete="username" required />
+                                                </div>
+                                                <div class="admin-auth__field">
+                                                        <label for="admin-password">Password</label>
+                                                        <input id="admin-password" name="password" type="password" autocomplete="current-password" required />
+                                                </div>
+                                                <div class="admin-auth__actions">
+                                                        <input type="submit" value="Login" />
+                                                        <button type="button" class="button" data-admin-auth-forgot>Lupa Password</button>
+                                                </div>
+                                                <p id="admin-login-message" class="admin-auth__success" hidden></p>
+                                                <p id="admin-login-error" class="admin-auth__error" hidden></p>
+                                        </form>
+                                </div>
+
+                                <div id="admin-auth-view-forgot" hidden>
+                                        <h2>Ubah Password</h2>
+                                        <form id="admin-forgot-form" autocomplete="off">
+                                                <div class="admin-auth__field">
+                                                        <label for="admin-new-password">Password Baru</label>
+                                                        <input id="admin-new-password" name="newPassword" type="password" autocomplete="new-password" required />
+                                                </div>
+                                                <div class="admin-auth__field">
+                                                        <label for="admin-confirm-password">Konfirmasi Password</label>
+                                                        <input id="admin-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" required />
+                                                </div>
+                                                <div class="admin-auth__actions">
+                                                        <input type="submit" value="Konfirmasi" />
+                                                        <button type="button" class="button" data-admin-auth-back>Kembali</button>
+                                                </div>
+                                                <p id="admin-forgot-error" class="admin-auth__error" hidden></p>
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+
+                <script src="assets/js/jquery.min.js"></script>
+                <script src="assets/js/browser.min.js"></script>
+                <script src="assets/js/breakpoints.min.js"></script>
+                <script src="assets/js/util.js"></script>
+                <script src="assets/js/main.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+                <script src="assets/js/alert.js"></script>
+
+        </body>
+</html>

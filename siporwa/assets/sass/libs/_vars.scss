@@ -1,0 +1,45 @@
+// Misc.
+	$misc: (
+		z-index-base:				10000
+	);
+
+// Duration.
+	$duration: (
+		menu:						0.5s,
+		transition:					0.2s
+	);
+
+// Size.
+	$size: (
+		element-height:				2.75em,
+		element-margin:				2em,
+		section-spacing:			3em,
+		section-spacing-small:		1.5em,
+		menu:						25em
+	);
+
+// Font.
+	$font: (
+		family:						('Source Sans Pro', Helvetica, sans-serif),
+		family-fixed:				('Courier New', monospace),
+		family-heading:				('Raleway', Helvetica, sans-serif),
+		weight:						400,
+		weight-bold:				700,
+		weight-heading:				400,
+		weight-heading-bold:		800,
+		weight-heading-extrabold:	900,
+		kerning-heading:			0.25em
+	);
+
+// Palette.
+	$palette: (
+		bg:							#1a1a1a,
+		bg-alt:						#2a2a2a,
+		fg:							#f0f0f0,
+		fg-bold:					#ffffff,
+		fg-light:					#b0b0b0,
+		border:						rgba(255,255,255,0.1),
+		border-bg:					rgba(255,255,255,0.05),
+		border-alt:					rgba(255,255,255,0.3),
+		accent:						#e74c3c
+	);
